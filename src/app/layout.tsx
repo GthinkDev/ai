@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import clsx from "clsx";
+
+import { fontNotoSansSC } from "@/fonts";
+import { ThemeProvider } from "@/components/theme-provider";
+import DeNavBar from "@/components/ui/nav/DeNavBar";
+import Variants from "@/components/ui/nav/MotionNav/Variants";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +30,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={clsx(
+          geistSans.variable,
+          geistMono.variable,
+          fontNotoSansSC.className,
+          // eslint-disable-next-line prettier/prettier
+          "antialiased"
+        )}
       >
-        {children}
+        <ThemeProvider
+          disableTransitionOnChange
+          enableSystem
+          attribute="class"
+          defaultTheme="system"
+        >
+          <Variants />
+          <DeNavBar />
+          <main className="flex justify-between max-w-[1440px] items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 font-medium">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

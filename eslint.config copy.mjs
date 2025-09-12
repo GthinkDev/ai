@@ -48,10 +48,10 @@ export default defineConfig([
     extends: fixupConfigRules(
       compat.extends(
         "plugin:react/recommended",
+        "plugin:prettier/recommended",
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
         "plugin:@next/next/recommended",
-        "plugin:prettier/recommended",
       ),
     ),
 
