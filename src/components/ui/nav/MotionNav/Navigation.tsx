@@ -5,8 +5,7 @@ import type { FC } from "react";
 import { motion } from "framer-motion";
 import React, { memo } from "react";
 
-import { NavMenuItem } from "../DeNavBar";
-
+import { NavMenuItem } from "./DeNavBar";
 import MenuItem from "./MenuItem";
 
 const navVariants = {

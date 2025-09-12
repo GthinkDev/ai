@@ -4,7 +4,7 @@
 import type { FC } from "react";
 
 import { motion } from "framer-motion";
-import React, { memo, useState } from "react";
+import React, { memo } from "react";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
@@ -33,7 +33,6 @@ interface IProps {
 const MenuItem: FC<IProps> = (props) => {
   const { item } = props;
   const pathName = usePathname();
-  const [, setSideBarOpen] = useState(false);
 
   return (
     <motion.li
@@ -53,7 +52,6 @@ const MenuItem: FC<IProps> = (props) => {
         )}
         size={"lg"}
         variant={null}
-        onClick={() => setSideBarOpen(false)}
       >
         <motion.a href={item.href}>{item.name}</motion.a>
       </Button>

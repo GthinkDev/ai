@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 import { fontNotoSansSC } from "@/fonts";
 import { ThemeProvider } from "@/components/theme-provider";
-import DeNavBar from "@/components/ui/nav/DeNavBar";
+import DeNavBar from "@/components/ui/nav/MotionNav/DeNavBar";
 import Variants from "@/components/ui/nav/MotionNav/Variants";
 
 const geistSans = Geist({

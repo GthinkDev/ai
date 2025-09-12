@@ -10,10 +10,8 @@ import clsx from "clsx";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 
-import { ModeToggle } from "../ModeToggle";
-import { Button } from "../button";
-
-import Variants from "./MotionNav/Variants";
+import { ModeToggle } from "../../ModeToggle";
+import { Button } from "../../button";
 
 import LogoDark from "@/assets/logo-dark.svg";
 import LogoLight from "@/assets/logo-light.svg";
@@ -38,7 +36,6 @@ export const NavMenuItem = [
 ];
 const DeNavBar: FC = () => {
   const pathName = usePathname();
-  const [sideBarOpen, setSideBarOpen] = useState(false);
   const { theme, resolvedTheme, setTheme } = useTheme();
   // 使用 resolvedTheme 确保服务端和客户端一致
   // 添加一个状态来跟踪客户端是否已加载
@@ -131,7 +128,6 @@ const DeNavBar: FC = () => {
               )}
               size={"lg"}
               variant={null}
-              onClick={() => setSideBarOpen(false)}
             >
               <motion.a href={item.href}>{item.name}</motion.a>
             </Button>
@@ -140,10 +136,9 @@ const DeNavBar: FC = () => {
 
         {/* <DeNavMenu /> */}
       </motion.div>
-      <span className="  fixed sm:top-2 max-sm:right-14 sm:right-14 lg:right-24 md:right-14">
+      <span className="flex flex-1 max-sm:fixed max-sm:right-14 justify-end items-center">
         <ModeToggle />
       </span>
-      <Variants />
     </div>
   );
 };
