@@ -89,13 +89,13 @@ const DeNavBar: FC = () => {
 
   return (
     <div
-      className="flex  justify-start bg-background w-full items-center gap-6 px-4 sm:px-12 lg:px-24 xl:px-40 py-2  sticky top-0 z-40 backdrop-blur-xl font-medium "
+      className="flex  justify-between bg-background w-full items-center gap-12 px-4 sm:px-12 lg:px-24 xl:px-40 py-2  sticky top-0 z-40 backdrop-blur-xl font-medium "
       suppressHydrationWarning={true}
     >
       <motion.div
         animate={{ opacity: 1, scale: 1 }}
         className="flex items-start justify-start  gap-2  w-fit cursor-pointer"
-        initial={{ opacity: 0, scale: 0.5 }}
+        initial={{ opacity: 0.1, scale: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         {mounted && (
@@ -112,7 +112,7 @@ const DeNavBar: FC = () => {
           <p className="text-blue-600 dark:text-yellow-300">.Ai</p>
         </div>
       </motion.div>
-      <motion.div className="text-gray-700 flex justify-between gap-2 dark:text-white items-center text-sm max-sm:hidden sm:hidden md:flex lg:flex xl:flex transition-all">
+      <motion.div className="text-gray-700 flex justify-start flex-1 dark:text-white items-center text-sm max-sm:hidden sm:hidden md:flex lg:flex xl:flex transition-all">
         {NavMenuItem.map((item) => (
           <motion.div
             key={item.name}
@@ -136,9 +136,11 @@ const DeNavBar: FC = () => {
 
         {/* <DeNavMenu /> */}
       </motion.div>
-      <span className="flex flex-1 max-sm:fixed max-sm:right-14 justify-end items-center">
-        <ModeToggle />
-      </span>
+      <ul className="flex flex-1 justify-end  items-center">
+        <li className="max-sm:fixed top-2 right-16">
+          <ModeToggle />
+        </li>
+      </ul>
     </div>
   );
 };

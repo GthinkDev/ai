@@ -48,7 +48,7 @@ export default function RootLayout({
         >
           <Variants />
           <DeNavBar />
-          <main className="flex justify-between max-w-[1440px] items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 font-medium">
+          <main className="flex justify-between  items-center max-sm:px-4 sm:px-12 lg:px-24 xl:px-40 py-4 z-30 min-h-screen">
             {children}
           </main>
         </ThemeProvider>
