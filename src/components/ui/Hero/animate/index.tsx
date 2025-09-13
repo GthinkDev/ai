@@ -78,9 +78,9 @@ const bgTextVariants = {
   },
   visible: {
     opacity: 1,
-    x: [0, -5000], // 从左向右滑动的范围，可根据需要调整
+    x: [0, 100], // 从左向右滑动的范围，可根据需要调整
     transition: {
-      duration: 30, // 滑动一次的时间，值越大速度越慢
+      duration: 10, // 滑动一次的时间，值越大速度越慢
       ease: "linear", // 线性运动更自然
       repeat: Infinity, // 无限重复
       repeatType: "mirror", // 到达终点后反向滑动，避免突兀跳转
