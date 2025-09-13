@@ -11,7 +11,7 @@ import MenuToggle from "./MenuToggle";
 
 import useDimensions from "@/utils/hooks/useDimensions";
 
-const sidebarVariants: Variants = {
+export const sidebarVariants: Variants = {
   open: (height = 1200) => ({
     clipPath: `circle(${height * 2 + 200}px at 100% 0)`,
     transition: {
@@ -53,11 +53,11 @@ const Variants: FC = () => {
         >
           {/* 背景动画元素 */}
           <motion.div
-            className="bg-background  absolute top-0 right-0 bottom-0 w-2/3 z-50"
+            className="bg-background/80 backdrop-blur-3xl absolute top-0 right-0 bottom-0 w-2/3 z-40"
             variants={sidebarVariants}
           />
           {/* 导航菜单内容 */}
-          <Navigation />
+          <Navigation isOpen={false} />
           {/* 菜单切换按钮 */}
           <MenuToggle toggle={() => setIsOpen(!isOpen)} />
         </motion.nav>

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 "use client";
 
 import type { FC } from "react";
@@ -48,7 +47,7 @@ const MenuItem: FC<IProps> = (props) => {
           pathName === item.href &&
             " text-blue-500  pointer-events-none dark:text-yellow-300",
 
-          "  hover:text-blue-500 hover:dark:text-yellow-300 text-base "
+          "  hover:text-blue-500 hover:dark:text-yellow-300 text-base ",
         )}
         size={"lg"}
         variant={null}

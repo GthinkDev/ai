@@ -15,7 +15,7 @@ const MenuToggle: FC<IProps> = (props) => {
 
   return (
     <motion.button
-      className="absolute top-2.5 right-4 z-50  md:hidden  text-foreground cursor-pointer rounded-full p-2"
+      className="fixed top-2.5 right-4 z-50  md:hidden  text-foreground cursor-pointer rounded-full p-2"
       // style={toggleContainer}
       title="Menu Toggle"
       onClick={toggle}
