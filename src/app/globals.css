@@ -115,12 +115,10 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply dark:bg-gray-900 bg-gray-100 text-foreground;
-  }
+
   /* 首先确保根元素和body没有默认边距 */
   html, body {
-    @apply m-0 p-0 w-full min-w-[100vw] dark:bg-gray-900 bg-gray-100 text-foreground;
+    @apply m-0 p-0 w-full  dark:bg-gray-900 bg-gray-100 text-foreground;
   }
 
 }
@@ -131,6 +129,19 @@
     @apply mx-auto min-w-full h-screen
     overflow-hidden  max-sm:px-4 sm:px-12
     lg:px-24 xl:px-40 py-4 z-0 ;
+  }
+  .parallaxMountains{
+    @apply absolute bottom-0 bg-cover z-[3] bg-no-repeat bg-center w-full h-full;
+    background-image: url("@/assets/mountains.png");
+
+  }
+  .parallax {
+    @apply absolute bottom-0 bg-cover z-[2] bg-no-repeat bg-center w-full h-full;
+    background-image: url("@/assets/planets.png");
+  }
+  .parallaxStars{
+    @apply absolute bottom-0 bg-cover z-[1] bg-no-repeat bg-center w-full h-full;
+    background-image: url("@/assets/stars.png");
   }
 
 }
