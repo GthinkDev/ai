@@ -3,11 +3,13 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
+import { Suspense } from "react";
 
 import { fontNotoSansSC } from "@/fonts";
 import { ThemeProvider } from "@/components/theme-provider";
 import DeNavBar from "@/components/ui/nav/MotionNav/DeNavBar";
 import Variants from "@/components/ui/nav/MotionNav/Variants";
+import Loading from "@/app/loading";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,11 +46,13 @@ export default function RootLayout({
           disableTransitionOnChange
           enableSystem
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
         >
-          <Variants />
-          <DeNavBar />
-          <main className={"w-full mx-auto h-full"}>{children}</main>
+          <Suspense fallback={<Loading />}>
+            <Variants />
+            <DeNavBar />
+            <main className={"w-full mx-auto h-full"}>{children}</main>
+          </Suspense>
         </ThemeProvider>
       </body>
     </html>

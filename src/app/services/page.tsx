@@ -15,6 +15,9 @@ const ServicesPage: FC = () => {
       <div id={"services"}>
         <Parallax type={"services"} />
       </div>
+      <div id={"services"}>
+        <Parallax type={"services"} />
+      </div>
       <div id={"portfolio"}>
         <Parallax type={"portfolio"} />
       </div>

@@ -42,7 +42,7 @@ const Parallax: FC<IProps> = (props) => {
 
       <motion.div className="parallaxMountains z-[3]" />
       <motion.div
-        className="parallax z-[2] absolute lg:right-0 sm:-right-[10px] md:-right-[10px] "
+        className="parallax z-[2] absolute "
         style={{
           y: yBg,
           backgroundImage: `url(${

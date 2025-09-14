@@ -1,13 +1,14 @@
 import { FC, memo } from "react";
 import React from "react";
 
+import Star from "@/components/ui/Star";
+import AnimateButton from "@/components/ui/button/AnimateButton";
+
 const About: FC = () => {
   return (
-    <div className={"container flex flex-col  relative"}>
-      <div className={"h-screen"}>NO.1</div>
-      <div className={"h-screen"}>NO.1</div>
-      <div className={"h-screen"}>NO.1</div>
-      <div className={"h-screen"}>NO.1</div>
+    <div>
+      <Star />
+      <AnimateButton>Works1111</AnimateButton>
     </div>
   );
 };

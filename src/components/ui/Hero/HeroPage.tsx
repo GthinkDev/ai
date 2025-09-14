@@ -69,9 +69,12 @@ const HeroPage: FC = () => {
           </MotionButton>
           <MotionButton
             className={
-              "px-12 py-7 w-fit text-lg bg-blue-500 text-background dark:bg-yellow-400"
+              "px-12 py-7 border-2 text-lg text-black dark:bg-yellow-400"
             }
             size="lg"
+            variant="outline"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.5 }}
           >
             联系我们
           </MotionButton>
@@ -87,7 +90,7 @@ const HeroPage: FC = () => {
         </motion.div>
       </section>
       {/*右边内容*/}
-      <section className={"flex-1 w-1/2 "}>
+      <section className={"flex-1 w-1/2 z-0 "}>
         <MotionImage
           alt="Hero image description"
           animate={{ opacity: 1, scale: 1 }}
