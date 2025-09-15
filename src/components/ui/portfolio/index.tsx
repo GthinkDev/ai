@@ -151,18 +151,20 @@ const Portfolio: FC = () => {
   return (
     <motion.div
       ref={ref}
-      className={" flex flex-col gap-8  justify-start pb-[400px] relative"}
+      className={
+        " flex flex-col gap-8  justify-start pt-20 pb-[400px] relative"
+      }
     >
       <div
         className={
-          "sticky h-full top-14 dark:bg-gray-900/90 bg-gray-100/90 z-[999] glass"
+          "sticky h-full top-14 dark:bg-gray-900/90 bg-gray-100/90 z-[50] glass"
         }
       >
         <h1 className={"text-7xl w-full text-center title font-black "}>
           已完成的产品
         </h1>
         <motion.div
-          className={"h-1  sticky top-20 z-20 buttonBg"}
+          className={"h-2  sticky top-20 z-20 buttonBg"}
           style={{ scaleX }}
         />
       </div>

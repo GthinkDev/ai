@@ -14,6 +14,7 @@ const Items: FC<IProps> = (props) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
+    // offset: ["start start", "end start"],
   });
 
   const Y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
@@ -39,9 +40,13 @@ const Items: FC<IProps> = (props) => {
       >
         <h2 className="text-4xl font-bold">{title}</h2>
         <p className="">{description}</p>
-        <button className={"px-12 py-4 buttonBg w-fit text-background"}>
+        <motion.button
+          className={"px-12 py-4 buttonBg w-fit text-background"}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.5 }}
+        >
           查看详情
-        </button>
+        </motion.button>
       </motion.div>
     </motion.li>
   );

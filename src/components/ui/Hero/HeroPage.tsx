@@ -60,7 +60,7 @@ const HeroPage: FC = () => {
           }}
         >
           <motion.button
-            className={"px-12 py-4 border-2 rounded-full text-lg"}
+            className={"px-12 py-4 border-2 text-lg"}
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.5 }}
           >
@@ -68,7 +68,7 @@ const HeroPage: FC = () => {
           </motion.button>
           <motion.button
             className={
-              "px-12 py-4 border-2 rounded-full text-lg text-black dark:bg-yellow-400"
+              "px-12 py-4 border-2  text-lg text-black dark:bg-yellow-400"
             }
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.5 }}
