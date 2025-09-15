@@ -7,6 +7,7 @@ import React, { memo } from "react";
 import HeroPage from "@/components/ui/Hero/HeroPage";
 import Parallax from "@/components/ui/parallax";
 import Services from "@/components/ui/services";
+import Portfolio from "@/components/ui/portfolio";
 
 const Home: FC = () => {
   return (
@@ -18,8 +19,11 @@ const Home: FC = () => {
       <div id={"services"}>
         <Services />
       </div>
-      <div id={"portfolio"}>
+      <div id={"services"}>
         <Parallax type={"portfolio"} />
+      </div>
+      <div id={"portfolio"}>
+        <Portfolio />
       </div>
     </div>
   );

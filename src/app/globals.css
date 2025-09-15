@@ -138,6 +138,9 @@
 
     }
 
+    .glass{
+        @apply   backdrop-blur-lg
+    }
     .parallax {
         @apply absolute bottom-0 bg-cover z-[2] bg-no-repeat bg-center w-full h-full;
         background-image: url("@/assets/planets.png");

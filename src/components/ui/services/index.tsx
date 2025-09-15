@@ -1,8 +1,7 @@
-import type { FC } from "react";
-
+import { FC, useRef } from "react";
 import React, { memo } from "react";
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 import ListItem from "@/components/ui/services/list";
 
@@ -35,38 +34,87 @@ const Lists = [
   },
 ];
 
+const variants = {
+  initial: {
+    opacity: 0,
+    y: -100,
+    x: -500,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: {
+      duration: 1.5,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
 const Services: FC = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-100px" });
+
   return (
-    <div
-      className={"  mx-auto flex flex-col gap-4 justify-between items-center"}
+    <motion.div
+      ref={ref}
+      animate={isInView && "animate"}
+      className={
+        "mx-auto flex flex-col py-20 gap-4 justify-between items-center"
+      }
+      initial={"initial"}
+      variants={variants}
     >
       <motion.div
-        className={"flex justify-end gap-4 py-12 items-center w-full"}
+        className={"flex justify-end gap-4 items-center w-full"}
+        variants={variants}
       >
-        <motion.div className={"w-full flex flex-col items-end  opacity-70"}>
-          <motion.p>我们的使命是赋能品牌进化，</motion.p>
-          <motion.p> 以清晰的愿景和周密的计划，引领其迈向卓越。</motion.p>
+        <motion.div
+          className={"w-full flex flex-col items-end  opacity-70"}
+          variants={variants}
+        >
+          <motion.p variants={variants}>我们的使命是赋能品牌进化，</motion.p>
+          <motion.p variants={variants}>
+            {" "}
+            以清晰的愿景和周密的计划，引领其迈向卓越。
+          </motion.p>
         </motion.div>
         <motion.div className={"w-1/3 bg-foreground/50 h-[1px]"} />
       </motion.div>
 
-      <motion.div className={"  flex flex-col py-16 "}>
-        <motion.div className={clsx("flex gap-4 items-center  justify-end")}>
-          <img
+      <motion.div className={"  flex flex-col py-16 "} variants={variants}>
+        <motion.div
+          className={clsx("flex gap-4 items-center  justify-end")}
+          variants={variants}
+        >
+          <motion.img
             alt={"Missing"}
             className={"  w-72 h-28 rounded-full mr-8 object-cover"}
             src={"/people.webp"}
+            variants={variants}
           />
-          <motion.p className={"font-black text-8xl title"}>独特的</motion.p>
-          <motion.p className={"font-thin  text-8xl"}>解决方案</motion.p>
+          <motion.p className={"font-black text-8xl title"} variants={variants}>
+            独特的
+          </motion.p>
+          <motion.p className={"font-thin text-8xl"} variants={variants}>
+            解决方案
+          </motion.p>
         </motion.div>
-        <motion.div className={clsx("flex gap-8 items-center justify-center")}>
-          <motion.p className={"font-black text-8xl title"}>For Your</motion.p>
-          <motion.p className={"font-thin text-8xl"}>Business.</motion.p>
+        <motion.div
+          className={clsx("flex gap-8 items-center justify-center")}
+          variants={variants}
+        >
+          <motion.p className={"font-black text-8xl title"} variants={variants}>
+            For Your
+          </motion.p>
+          <motion.p className={"font-thin text-8xl"} variants={variants}>
+            Business.
+          </motion.p>
           <motion.button
             className={
-              "px-14 py-9 border-2 rounded-full text-2xl  text-black dark:bg-yellow-500"
+              "px-14 py-9 border-2 rounded-full text-2xl  buttonBg text-background"
             }
+            variants={variants}
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.5 }}
           >
@@ -77,8 +125,11 @@ const Services: FC = () => {
           {/*</SparkleButton>*/}
         </motion.div>
       </motion.div>
-      <div>
-        <ul className={"flex mx-auto max-w-[1440px] "}>
+      <motion.div variants={variants}>
+        <motion.ul
+          className={"flex mx-auto max-w-[1440px] "}
+          variants={variants}
+        >
           {Lists.map((item, index) => {
             return (
               <ListItem
@@ -88,9 +139,9 @@ const Services: FC = () => {
               />
             );
           })}
-        </ul>
-      </div>
-    </div>
+        </motion.ul>
+      </motion.div>
+    </motion.div>
   );
 };
 

@@ -88,7 +88,7 @@ const DeNavBar: FC = () => {
 
   return (
     <div
-      className="flex  justify-between bg-background/80 w-full items-center gap-12 px-4 sm:px-12 lg:px-24 xl:px-40 py-2  sticky top-0 z-40 backdrop-blur-xl font-medium "
+      className="flex  justify-between bg-background/90 w-full items-center gap-12 px-4 sm:px-12 lg:px-24 xl:px-40 py-2  sticky top-0 z-40 backdrop-blur-xl font-medium "
       suppressHydrationWarning={true}
     >
       <motion.div className="flex items-start justify-start  gap-2  w-fit cursor-pointer">

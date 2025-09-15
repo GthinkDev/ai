@@ -17,20 +17,23 @@ const ListItem: FC<IProps> = (props) => {
   return (
     <motion.li
       className={
-        "flex flex-col justify-between items-start gap-10 flex-1 p-12 border border-gray-500"
+        "flex flex-col justify-between items-start gap-10 flex-1  p-12  border-1 border-gray-500"
       }
       whileHover={{
-        backgroundColor: "#eaeaea",
-        backgroundImage: "none",
-        backgroundRepeat: "repeat",
-        backgroundPosition: "0% 0%",
-        backgroundSize: "auto",
-        color: "#000000",
-        scale: 1.1,
+        backgroundColor: "lightgray",
+        color: "black",
+        scale: 1.2,
+        transition: {
+          duration: 0.3,
+          ease: "easeInOut",
+        },
       }}
     >
-      <h1 className={"font-bold text-2xl"}>{title}</h1>
-      <p className={"h-full"}>{description}</p>
+      <div className={"flex flex-col gap-10 hover:text-background "}>
+        <h1 className={"font-bold text-foreground text-2xl"}>{title}</h1>
+        <p className={"h-full text-foreground "}>{description}</p>
+      </div>
+
       <Button
         className={"w-full buttonBg text-background rounded-none py-6"}
         size={"lg"}
@@ -43,3 +46,15 @@ const ListItem: FC<IProps> = (props) => {
 };
 
 export default memo(ListItem);
+
+// 定义 CSS 变量
+const colors = {
+  light: {
+    bg: "#f3f4f6",
+    text: "#111827",
+  },
+  dark: {
+    bg: "#000b25",
+    text: "#f3f4f6",
+  },
+};
