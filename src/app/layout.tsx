@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
-import { Suspense } from "react";
+import { ReactNode, Suspense } from "react";
 
-import { fontNotoSansSC } from "@/fonts";
+import { fontPoppins } from "@/fonts";
 import { ThemeProvider } from "@/components/theme-provider";
 import DeNavBar from "@/components/ui/nav/MotionNav/DeNavBar";
 import Variants from "@/components/ui/nav/MotionNav/Variants";
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html suppressHydrationWarning lang="en">
@@ -37,7 +37,7 @@ export default function RootLayout({
         className={clsx(
           geistSans.variable,
           geistMono.variable,
-          fontNotoSansSC.className,
+          fontPoppins.className,
 
           "antialiased",
         )}
@@ -48,9 +48,9 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="dark"
         >
+          <Variants />
+          <DeNavBar />
           <Suspense fallback={<Loading />}>
-            <Variants />
-            <DeNavBar />
             <main className={"w-full mx-auto h-full"}>{children}</main>
           </Suspense>
         </ThemeProvider>

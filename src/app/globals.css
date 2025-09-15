@@ -147,4 +147,7 @@
         @apply absolute bottom-0 bg-cover z-[1] bg-no-repeat bg-center w-full h-full;
         background-image: url("@/assets/stars.png");
     }
+    .title {
+        @apply text-blue-500 dark:text-yellow-400  leading-normal;
+    }
 }

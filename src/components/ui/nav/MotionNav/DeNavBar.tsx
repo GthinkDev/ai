@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 "use client";
 
 import type { FC } from "react";
@@ -51,7 +50,7 @@ const DeNavBar: FC = () => {
       setTheme(storedTheme);
     } else {
       const systemPrefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
+        "(prefers-color-scheme: dark)",
       ).matches;
 
       setTheme(systemPrefersDark ? "dark" : "light");
@@ -73,7 +72,7 @@ const DeNavBar: FC = () => {
     } else {
       // 如果没有存储的主题，使用系统偏好或默认为 light
       const systemPrefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
+        "(prefers-color-scheme: dark)",
       ).matches;
 
       setTheme(systemPrefersDark ? "dark" : "light");
@@ -92,12 +91,7 @@ const DeNavBar: FC = () => {
       className="flex  justify-between bg-background/80 w-full items-center gap-12 px-4 sm:px-12 lg:px-24 xl:px-40 py-2  sticky top-0 z-40 backdrop-blur-xl font-medium "
       suppressHydrationWarning={true}
     >
-      <motion.div
-        animate={{ opacity: 1, scale: 1 }}
-        className="flex items-start justify-start  gap-2  w-fit cursor-pointer"
-        initial={{ opacity: 0.1, scale: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-      >
+      <motion.div className="flex items-start justify-start  gap-2  w-fit cursor-pointer">
         {mounted && (
           <Image
             alt="DeMaster.Ai Logo"
@@ -109,7 +103,7 @@ const DeNavBar: FC = () => {
         )}
         <div className="flex font-black text-xl">
           <p>DeMaster</p>
-          <p className="text-blue-600 dark:text-yellow-300">.Ai</p>
+          <p className="text-blue-600  dark:text-yellow-300">.Ai</p>
         </div>
       </motion.div>
       <motion.div className="text-gray-700 flex justify-start flex-1 dark:text-white items-center text-sm max-sm:hidden sm:hidden md:flex lg:flex xl:flex transition-all">
@@ -124,7 +118,7 @@ const DeNavBar: FC = () => {
                 pathName === item.href &&
                   " text-blue-500  pointer-events-none dark:text-yellow-300",
 
-                "  hover:text-blue-500 hover:dark:text-yellow-300 text-base "
+                "  hover:text-blue-500 hover:dark:text-yellow-300 text-base ",
               )}
               size={"lg"}
               variant={null}

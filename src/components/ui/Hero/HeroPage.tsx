@@ -24,7 +24,7 @@ const HeroPage: FC = () => {
           <motion.h2
             animate={{ opacity: 1, scale: 1 }}
             className={
-              "text-3xl font-medium text-blue-500 dark:text-yellow-400"
+              "text-3xl font-medium opacity-10 text-blue-500 dark:text-yellow-400"
             }
             initial={{ opacity: 0, scale: 0.5 }}
             transition={{
@@ -33,7 +33,8 @@ const HeroPage: FC = () => {
               ease: [0, 0.71, 0.2, 1.01],
             }}
           >
-            DeMaster NextJS + Frame motion +TailwindCSS Project
+            DeMaster
+            <br /> NextJS + Frame motion +TailwindCSS Project
           </motion.h2>
           <motion.h1
             animate={{ opacity: 1, scale: 1 }}
@@ -58,26 +59,22 @@ const HeroPage: FC = () => {
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
-          <MotionButton
-            className={"px-12 py-7 border-2 text-lg"}
-            size="lg"
-            variant="outline"
+          <motion.button
+            className={"px-12 py-4 border-2 rounded-full text-lg"}
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.5 }}
           >
             最近的产品
-          </MotionButton>
-          <MotionButton
+          </motion.button>
+          <motion.button
             className={
-              "px-12 py-7 border-2 text-lg text-black dark:bg-yellow-400"
+              "px-12 py-4 border-2 rounded-full text-lg text-black dark:bg-yellow-400"
             }
-            size="lg"
-            variant="outline"
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.5 }}
           >
             联系我们
-          </MotionButton>
+          </motion.button>
         </motion.div>
         {/*小鼠标*/}
         <motion.div
