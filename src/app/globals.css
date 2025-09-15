@@ -150,4 +150,11 @@
     .title {
         @apply text-blue-500 dark:text-yellow-400  leading-normal;
     }
+    .buttonBg {
+        @apply bg-blue-500 dark:bg-yellow-400  leading-normal;
+    }
+    .people{
+        @apply  bg-cover z-[1]  bg-center max-w-72 h-25;
+        background-image: url("@/assets/people.webp");
+    }
 }
