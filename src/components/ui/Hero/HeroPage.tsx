@@ -16,6 +16,7 @@ const MotionButton = motion(Button);
 
 const HeroPage: FC = () => {
   // @ts-ignore
+  // @ts-ignore
   return (
     <div className={" container w-full relative flex  h-[1080px] "}>
       {/*左边内容*/}

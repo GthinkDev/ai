@@ -46,15 +46,3 @@ const ListItem: FC<IProps> = (props) => {
 };
 
 export default memo(ListItem);
-
-// 定义 CSS 变量
-const colors = {
-  light: {
-    bg: "#f3f4f6",
-    text: "#111827",
-  },
-  dark: {
-    bg: "#000b25",
-    text: "#f3f4f6",
-  },
-};

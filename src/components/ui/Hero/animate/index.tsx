@@ -89,17 +89,28 @@ const bgTextVariants = {
 };
 
 // 鼠标图标动画变体
+// const mouseIconVariants = {
+//   visible: {
+//     opacity: [0, 0.5, 0.8, 1, 0.8, 0.5, 0], // 更细腻的透明度变化
+//     y: [0, 5, 10, 15, 20, 15, 10, 5, 0], // 更自然的上下运动轨迹
+//     transition: {
+//       duration: 1, // 稍长的持续时间让变化更从容
+//       repeat: Infinity,
+//       ease: "easeInOut", // 保持平滑的缓动
+//       delay: 1.2, // 稍微缩短延迟
+//       times: [0, 0.2, 0.4, 0.5, 0.6, 0.8, 1], // 控制关键帧时间点
+//       repeatType: "reverse", // 反向重复使过渡更自然
+//     },
+//   },
+// };
 const mouseIconVariants = {
-  visible: {
+  animate: {
     opacity: [0, 0.5, 0.8, 1, 0.8, 0.5, 0], // 更细腻的透明度变化
     y: [0, 5, 10, 15, 20, 15, 10, 5, 0], // 更自然的上下运动轨迹
     transition: {
-      duration: 1, // 稍长的持续时间让变化更从容
+      duration: 1.5,
       repeat: Infinity,
-      ease: "easeInOut", // 保持平滑的缓动
-      delay: 1.2, // 稍微缩短延迟
-      times: [0, 0.2, 0.4, 0.5, 0.6, 0.8, 1], // 控制关键帧时间点
-      repeatType: "reverse", // 反向重复使过渡更自然
+      repeatType: "reverse" as const,
     },
   },
 };
