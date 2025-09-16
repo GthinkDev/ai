@@ -163,9 +163,7 @@ const Contact: FC = () => {
               type="button"
               variant={"outline"}
               onClick={() => {
-                if (success) {
-                  window.location.reload();
-                }
+                window.location.reload();
               }}
             >
               <RefreshCcw className={"w-6 h-6"} />

@@ -5,6 +5,8 @@ import "./globals.css";
 import clsx from "clsx";
 import { ReactNode, Suspense } from "react";
 
+import Cursor from "../components/ui/Cursor";
+
 import { fontPoppins } from "@/fonts";
 import { ThemeProvider } from "@/components/theme-provider";
 import DeNavBar from "@/components/ui/nav/MotionNav/DeNavBar";
@@ -49,6 +51,7 @@ export default function RootLayout({
           defaultTheme="dark"
         >
           <Variants />
+          <Cursor />
           <DeNavBar />
           <Suspense fallback={<Loading />}>
             <main className={"w-full mx-auto h-full"}>{children}</main>
