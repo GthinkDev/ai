@@ -21,7 +21,7 @@ const PortfolioImage: FC<IProps> = (props) => {
   const y = useTransform(scrollYProgress, [0, 1], [-1000, 1000]);
 
   return (
-    <section className={"snap-container"}>
+    <section className={"snap-container snap-start"}>
       <div
         className={
           "flex justify-center items-center w-full h-full overflow-hidden"

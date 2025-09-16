@@ -12,23 +12,23 @@ import Contact from "@/components/ui/Contact";
 
 const Home: FC = () => {
   return (
-    <div className={" flex flex-col  "}>
+    <div className={" flex flex-col snap-start "}>
       <HeroPage />
-      <div id={"services"}>
+      <section id={"services"}>
         <Parallax type={"services"} />
-      </div>
-      <div id={"services"}>
+      </section>
+      <section id={"services"}>
         <Services />
-      </div>
-      <div id={"services"}>
+      </section>
+      <section id={"services"}>
         <Parallax type={"portfolio"} />
-      </div>
-      <div className={""} id={"portfolio"}>
+      </section>
+      <section className={""} id={"portfolio"}>
         <Portfolio />
-      </div>
-      <div className={""} id={"contact"}>
+      </section>
+      <section className={""} id={"contact"}>
         <Contact />
-      </div>
+      </section>
     </div>
   );
 };
