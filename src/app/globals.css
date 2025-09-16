@@ -119,7 +119,8 @@
 
     /* 首先确保根元素和body没有默认边距 */
     html, body {
-        @apply m-0 p-0 w-full  dark:bg-gray-900 bg-gray-100 text-foreground;
+        @apply m-0 p-0 w-full  dark:bg-gray-900 bg-gray-100 text-foreground ;
+        /*snap-y snap-mandatory*/
     }
 
 }
@@ -129,7 +130,7 @@
     .container {
         @apply mx-auto min-w-full h-screen
         overflow-hidden  max-sm:px-4 sm:px-12
-        lg:px-24 xl:px-40 py-4 z-0 ;
+        lg:px-24 xl:px-40 py-4 z-0 snap-y snap-mandatory  ;
     }
 
     .parallaxMountains {
@@ -159,5 +160,29 @@
     .people{
         @apply  bg-cover z-[1]  bg-center max-w-72 h-25;
         background-image: url("@/assets/people.webp");
+    }
+}
+
+/*.imgContainer {*/
+/*    @apply h-screen flex justify-center items-center relative snap-start;*/
+/*    .imgContainer>div{*/
+/*        @apply w-[720px] h-[512px] m-5 bg-gray-200 rounded-lg overflow-hidden;*/
+/*    }*/
+/*    .imgContainer>div>img{*/
+/*        @apply w-[720px] h-[512px] rounded-lg object-cover;*/
+/*    }*/
+/*}*/
+
+/*.imgContainer h1 {*/
+/*    @apply m-0 text-5xl font-bold absolute top-[calc(50%-25px)] left-[calc(50%+120px)];*/
+/*}*/
+
+/*.progress {*/
+/*    @apply fixed left-0 right-0 top-12 bg-foreground h-2 transform-scalex-0*/
+/*}*/
+
+@layer components {
+    .snap-container {
+        @apply snap-y snap-mandatory overflow-y-auto h-screen;
     }
 }

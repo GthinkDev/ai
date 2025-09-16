@@ -1,123 +1,77 @@
-"use client";
-
-import { FC, useRef } from "react";
-import React, { memo } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import React, { FC, useRef } from "react";
+
+// function useParallax(value: MotionValue<number>, distance: number) {
+//   return useTransform(value, [0, 1], [-distance, distance]);
+// }
 
 interface IProps {
+  image: string;
   title: string;
   description: string;
-  image: string;
 }
-const Items: FC<IProps> = (props) => {
+
+const PortfolioImage: FC<IProps> = (props) => {
   const { image, title, description } = props;
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    // offset: ["start start", "end start"],
+    // offset: ["start end", "end start"],
   });
-
-  const Y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
+  const y = useTransform(scrollYProgress, [0, 1], [-1000, 1000]);
 
   return (
-    <motion.li
-      ref={ref}
-      className={"flex relative items-center justify-center snap-start gap-8 "}
-    >
-      <motion.img
-        alt={title}
-        animate={{ visibility: "visible" }}
-        className="w-[720px] h-1/2 rounded-lg"
-        initial={{ visibility: "hidden" }}
-        src={image}
-        style={{ y: Y }}
-      />
-      <motion.div
-        animate={{ visibility: "visible" }}
-        className="flex w-[720px]  flex-col gap-10"
-        initial={{ visibility: "hidden" }}
-        style={{ y: Y }}
+    <section className={"snap-container"}>
+      <div
+        className={
+          "flex justify-center items-center w-full h-full overflow-hidden"
+        }
       >
-        <h2 className="text-4xl font-bold">{title}</h2>
-        <p className="">{description}</p>
-        <motion.button
-          className={"px-12 py-4 buttonBg w-fit text-background"}
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.5 }}
+        <div
+          className={
+            "  max-w-[1400px] m-auto flex gap-12 justify-center items-center h-full"
+          }
         >
-          查看详情
-        </motion.button>
-      </motion.div>
-    </motion.li>
+          {/*图片*/}
+          <div ref={ref} className="flex-1  ">
+            <img
+              alt="A London skyscraper"
+              className={" w-full h-full  object-cover"}
+              src={image}
+            />
+          </div>
+          {/*文字*/}
+          <motion.div className={"flex flex-col flex-1 gap-8"} style={{ y }}>
+            <motion.h2
+              // Hide until scroll progress is measured
+              animate={{ visibility: "visible" }}
+              className={"font-black text-4xl text-foreground/90  "}
+              initial={{ visibility: "hidden" }}
+            >
+              {title}
+            </motion.h2>
+            <motion.p
+              // Hide until scroll progress is measured
+              animate={{ visibility: "visible" }}
+              className={"text-lg text-foreground/80"}
+              initial={{ visibility: "hidden" }}
+            >
+              {description}
+            </motion.p>
+            <motion.button
+              animate={{ visibility: "visible" }}
+              className={"px-12 py-4 buttonBg w-fit text-background"}
+              initial={{ visibility: "hidden" }}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.5 }}
+            >
+              查看详情
+            </motion.button>
+          </motion.div>
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default memo(Items);
-
-function StyleSheet() {
-  return (
-    <style>{`
-        html {
-            scroll-snap-type: y mandatory;
-        }
-
-        .img-container {
-            height: 100vh;
-            scroll-snap-align: start;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .img-container > div {
-            width: 300px;
-            height: 400px;
-            margin: 20px;
-            background: #f5f5f5;
-            overflow: hidden;
-        }
-
-        .img-container img {
-            width: 300px;
-            height: 400px;
-        }
-
-        @media (max-width: 500px) {
-            .img-container > div {
-                width: 150px;
-                height: 200px;
-            }
-
-            .img-container img {
-                width: 150px;
-                height: 200px;
-            }
-        }
-
-        .img-container h2 {
-            color: #8df0cc;
-            margin: 0;
-            font-family: "Azeret Mono", monospace;
-            font-size: 50px;
-            font-weight: 700;
-            letter-spacing: -3px;
-            line-height: 1.2;
-            position: absolute;
-            display: inline-block;
-            top: calc(50% - 25px);
-            left: calc(50% + 120px);
-        }
-
-        .progress {
-            position: fixed;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: #8df0cc;
-            bottom: 50px;
-            transform: scaleX(0);
-        }
-    `}</style>
-  );
-}
+export default PortfolioImage;
