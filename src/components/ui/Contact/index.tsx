@@ -26,7 +26,7 @@ const Contact: FC = () => {
   return (
     <motion.div
       ref={ref}
-      className={"container flex gap-12 justify-center items-center "}
+      className={"container flex gap-16 justify-center items-center "}
       initial={"initial"}
       variants={variants}
       whileInView={"animate"}
@@ -60,13 +60,13 @@ const Contact: FC = () => {
           </motion.div>
         </motion.div>
       </motion.div>
-      <div className={"flex-1 justify-end relative items-end "}>
+      <div className={"flex-1 justify-end relative items-end top-4"}>
         <motion.div
           className={
             "text-blue-500 dark:text-yellow-400 z-0 w-full h-full absolute m-auto "
           }
           initial={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 3 }}
+          transition={{ delay: 1, duration: 2 }}
           whileInView={{ opacity: 0 }}
         >
           <svg
@@ -91,26 +91,26 @@ const Contact: FC = () => {
           action="/contact"
           className={"flex flex-col gap-6 relative z-50  w-full "}
           initial={{ opacity: 0 }}
-          transition={{ delay: 3, duration: 1 }}
+          transition={{ delay: 2, duration: 1 }}
           whileInView={{ opacity: 1 }}
         >
           <Input
-            className={" h-16 rounded-none"}
+            className={" h-16 rounded-none  p-4"}
             placeholder={"姓名"}
             type={"text"}
           />
           <Input
-            className={" h-16 rounded-none"}
+            className={" h-16 rounded-none  p-4"}
             placeholder={"联系方式"}
             type={"textarea"}
           />
           <Textarea
-            className={"h-40 rounded-none"}
+            className={"h-40 rounded-none p-4"}
             placeholder="备注一下方便我们联系"
           />
           <motion.button
             animate={{ visibility: "visible" }}
-            className={"px-12 py-4 buttonBg w-full text-background"}
+            className={"px-12 py-5 buttonBg w-full text-background"}
             initial={{ visibility: "hidden" }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.5 }}
