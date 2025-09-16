@@ -12,15 +12,8 @@ const MotionButton = motion(Button);
 
 const Contact: FC = () => {
   return (
-    <div className={"h-screen flex flex-col justify-start gap-6 items-center"}>
+    <div className={"container"}>
       <Reordering />
-      <MotionButton
-        style={box}
-        whileHover={{ scale: 1.2 }}
-        whileTap={{ scale: 0.8 }}
-      >
-        <p>Hover me</p>
-      </MotionButton>
     </div>
   );
 };

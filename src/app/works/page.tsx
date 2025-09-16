@@ -1,14 +1,8 @@
 import { FC, memo } from "react";
 import React from "react";
 
-import HeroPage from "@/components/ui/Hero/HeroPage";
-
-const index: FC = () => {
-  return (
-    <div>
-      <HeroPage />
-    </div>
-  );
+const About: FC = () => {
+  return <div className={"container"}>About</div>;
 };
 
-export default memo(index);
+export default memo(About);
