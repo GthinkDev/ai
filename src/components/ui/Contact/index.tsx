@@ -4,11 +4,12 @@ import { FC, useRef, useState } from "react";
 import React, { memo } from "react";
 import { motion, useInView } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import { RefreshCcw } from "lucide-react";
+import { AlertCircleIcon, CheckCircle2Icon, RefreshCcw } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const variants = {
   initial: {
@@ -171,6 +172,38 @@ const Contact: FC = () => {
             </Button>
           </div>
         </motion.form>
+        {error && (
+          <Alert
+            className={
+              "fixed top-0 transform translate-y-[-50%] left-0 right-0 m-auto"
+            }
+            variant="destructive"
+          >
+            <AlertCircleIcon />
+            <AlertTitle>信息发送失败！</AlertTitle>
+            <AlertDescription>
+              <p>请刷新页面后再进行发送</p>
+              <ul className="list-inside list-disc text-sm">
+                <li>检查您的网络状况；</li>
+                <li>检查填写的信息是否有误；</li>
+              </ul>
+            </AlertDescription>
+          </Alert>
+        )}
+        {success && (
+          <Alert
+            className={
+              "fixed top-28 w-fit transform translate-y-[-50%] left-0 right-0 m-auto"
+            }
+            variant={"default"}
+          >
+            <CheckCircle2Icon />
+            <AlertTitle>信息发送成功！</AlertTitle>
+            <AlertDescription>
+              信息发送成功，请耐心等待对方回复！
+            </AlertDescription>
+          </Alert>
+        )}
       </div>
     </motion.div>
   );
