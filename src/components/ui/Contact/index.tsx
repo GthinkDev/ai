@@ -1,11 +1,14 @@
 "use client";
 
-import { FC, useRef } from "react";
+import { FC, useRef, useState } from "react";
 import React, { memo } from "react";
 import { motion, useInView } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import { RefreshCcw } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 
 const variants = {
   initial: {
@@ -22,6 +25,28 @@ const variants = {
 const Contact: FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { margin: "-10px" });
+  const [error, setError] = useState<boolean>(false);
+  const [success, setSuccess] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
+  const formRef = useRef(null);
+
+  const sendEmail = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_yzug9o9", "template_zomdg4z", formRef.current as any, {
+        publicKey: "PfoD6AQO6f6kwubSC",
+      })
+      .then(
+        () => {
+          setSuccess(true);
+        },
+        (error) => {
+          setError(true);
+        },
+      );
+  };
 
   return (
     <motion.div
@@ -88,35 +113,63 @@ const Contact: FC = () => {
         </motion.div>
         {/* 表单容器 */}
         <motion.form
-          action="/contact"
+          ref={formRef}
+          action=""
           className={"flex flex-col gap-6 relative z-50  w-full "}
           initial={{ opacity: 0 }}
           transition={{ delay: 2, duration: 1 }}
           whileInView={{ opacity: 1 }}
+          onSubmit={sendEmail}
         >
           <Input
+            required
             className={" h-16 rounded-none  p-4"}
+            name={"name"}
             placeholder={"姓名"}
             type={"text"}
           />
           <Input
+            required
             className={" h-16 rounded-none  p-4"}
+            name={"email"}
             placeholder={"联系方式"}
             type={"textarea"}
           />
           <Textarea
             className={"h-40 rounded-none p-4"}
+            name={"message"}
             placeholder="备注一下方便我们联系"
           />
-          <motion.button
-            animate={{ visibility: "visible" }}
-            className={"px-12 py-5 buttonBg w-full text-background"}
-            initial={{ visibility: "hidden" }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.5 }}
-          >
-            发送信息
-          </motion.button>
+          <div className={"flex gap-4 "}>
+            <motion.button
+              animate={{ visibility: "visible" }}
+              className={
+                " py-5 buttonBg w-full text-background disabled:bg-yellow-800"
+              }
+              disabled={isSubmitting}
+              initial={{ visibility: "hidden" }}
+              type="submit"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.5 }}
+            >
+              {isSubmitting ? "发送中..." : "信息已发送"}
+            </motion.button>
+            <Button
+              className={
+                "buttonBg w-16 h-16  flex justify-center items-center text-2xl rounded-none text-foreground "
+              }
+              size={"icon"}
+              type="button"
+              variant={"outline"}
+              onClick={() => {
+                if (success) {
+                  window.location.reload();
+                }
+              }}
+            >
+              <RefreshCcw className={"w-6 h-6"} />
+            </Button>
+          </div>
         </motion.form>
       </div>
     </motion.div>
